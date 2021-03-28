@@ -131,27 +131,14 @@ def sync(config):
 
     all_nexudus_users = nexudus.users
 
-    while True:
+    for index,user in all_nexudus_users.iterrows():
+        update_status = nexudus.check_doorflow_status(user,doorflow)
+        if update_status != False:
+            updates.add_update(update_status)
 
-        for index,user in all_nexudus_users.iterrows():
-            update_status = nexudus.check_doorflow_status(user,doorflow)
-            if update_status != False:
-                updates.add_update(update_status)
+    updates.push_updates()
 
-        updates.push_updates()
-
-        try:
-            nexudus.update()
-        except:
-            print('Something wrong with Nexudus Update')
-
-        try:
-            doorflow.update()
-        except:
-            print('Something wrong with DoorFlow update')
-
-        print(datetime.datetime.now(),'Done with Updates')
-        time.sleep(config.cycle_time)
+    print(datetime.datetime.now(),'Done with Updates')
 
 def main():
 
