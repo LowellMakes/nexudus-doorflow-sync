@@ -104,7 +104,7 @@ class DoorFlow():
         self.update()
 
     def update(self):
-        url = "https://admin.doorflow.com/api/2/people"
+        url = "https://admin.doorflow.com/api/2/people?per_page=1000"
         doorflow_users = requests.get(url, auth = self.doorflow_auth)
         if doorflow_users.status_code != 200:
             raise StatusError
