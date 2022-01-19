@@ -43,7 +43,7 @@ class Nexudus():
 
     def update(self):
         nexudus_auth = (self.config.nexudus_api_username,self.config.nexudus_api_password)
-        url = "https://spaces.nexudus.com/api/spaces/coworkers?size=500"
+        url = "https://spaces.nexudus.com/api/spaces/coworkers?size=1000"
         all_users = requests.get(url, auth=nexudus_auth)
         if all_users.status_code != 200:
             raise StatusError
