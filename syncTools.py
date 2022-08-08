@@ -87,6 +87,7 @@ class coworker():
 
     def get_nexudus_invoices(self):
 
+        time.sleep(5)
         logging.debug(
             f'{self.nexudus_coworker_id} - Getting all Unpaid Invoices From Nexudus')
         url = "https://spaces.nexudus.com/api/billing/coworkerinvoices?page=1&size=50&CoworkerInvoice_Paid=false"
