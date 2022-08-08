@@ -11,7 +11,7 @@ doorflow_auth = requests.auth.HTTPBasicAuth(
     secrets['doorflow_auth_key'], 'x')
 nexudus_auth = (secrets['nexudus_username'],
                 secrets['nexudus_password'])
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 
 class coworker():
