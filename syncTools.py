@@ -4,6 +4,7 @@ from passwords import secrets
 import logging
 import pandas as pd
 import time
+import urllib
 
 team_map = pd.read_csv('team_group_map.csv', dtype='str')
 doorflow_auth = requests.auth.HTTPBasicAuth(
@@ -111,7 +112,8 @@ class coworker():
 
     def get_doorflow_user_info(self):
 
-        url = f"https://admin.doorflow.com/api/2/people?email={self.email_address}"
+        email = urllib.parse.quote_plus(self.email_address, safe='@')
+        url = f"https://admin.doorflow.com/api/2/people?email={email}"
         doorflow_user = requests.get(url, auth=doorflow_auth)
         if doorflow_user.status_code == 200:
             logging.debug(
