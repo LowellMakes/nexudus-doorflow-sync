@@ -27,7 +27,7 @@ def update_access_control():
     coworker = request.json[0]
     coworker_id = coworker['Id']
 
-    pool.map(processes.updateProcess, (coworker_id,))
+    pool.apply_async(processes.updateProcess, (coworker_id,))
 
     return Response(status=200)
 
@@ -38,7 +38,7 @@ def invoice_paid():
     coworker = request.json[0]
     coworker_id = coworker['Id']
 
-    pool.map(processes.updateProcess, (coworker_id,))
+    pool.apply_async(processes.updateProcess, (coworker_id,))
     return Response(status=200)
 
 
@@ -58,7 +58,7 @@ def expired_membership():
     coworker = request.json[0]
     coworker_id = coworker['Id']
 
-    pool.map(processes.updateProcess, (coworker_id,))
+    pool.apply_async(processes.updateProcess, (coworker_id,))
     return Response(status=200)
 
 
@@ -66,7 +66,7 @@ def expired_membership():
 def team_update():
 
     team = request.json[0]
-    pool.map(processes.update_team_members, (team,))
+    pool.apply_async(processes.update_team_members, (team,))
     return Response(status=200)
 
 
