@@ -1,4 +1,5 @@
 nexudus_name,nexudus_id,doorflow_name,doorflow_id
+Woodshop,1414848104,Woodshop,4622
 AudioBooth,1414945304,AudioBooth,5005
 ChopShop,1414859442,ChopShop,4695
 Excom,1414846180,Excom,4708
@@ -7,6 +8,5 @@ MetalShop,1414856801,MetalShop,4623
 Ops,1414863264,Ops,4709
 PaintShop,1414859535,PaintShop,4624
 Studio,1414945303,Studio,5004
-Woodshop,1414848104,Woodshop,4622
-BasicMember,nan,BasicMember,4482
+BasicMember,None,BasicMember,4482
 BrewShop,1415036464,BrewShop,6071
