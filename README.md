@@ -1,11 +1,17 @@
 # nexudus-doorflow-sync
 Utility to sync Nexudus teams to DoorFlow access permissions
 
-update the following config file options before running
-nexudus-api-username
-nexudus-api-password
+Update the keys/login info in secrets.py before proceeding
 
-System Overview:
-An ngrok server listens for webhook messages sent by Nexudus and relays them to syncServer.py which uses syncTools.py to query the current state of a user/team in Nexudus and pushes the information to DoorFlow using a REST API. sync_readers.py runs in the background and periodically forces a sync between the DoorFlow server and the local database on the card readers.
+The main code loop is in newSync.py and the flow is
+- Every X seconds check for member accounts that have been updated on Nexudus
+- If there are updates, send the updates to Doorflow backend
+- After all updates have been pushed to the Doorflow backend, push a sync command to push the updates to readers
+- Wait until the next cycle
 
-All code is run as a service on a dedicated machine on the Lowell Makes server.
+This should be run as a service on a local LM machiene.
+
+update_all_users.py is a utility that queries every user in the Nexudus database and pushes all changes to Doorflow. This can take a long time (>1 hour) but it is useful when things have gone wrong, to make sure everything is synced up.
+
+The last thing is team_group_map.csv
+This is necessary to link the teams in Nexudus to the groups in Doorflow. I wish there was a better way to do this, but this is the best I have found so far.
