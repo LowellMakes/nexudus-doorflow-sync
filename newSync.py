@@ -425,6 +425,7 @@ def main():
         now = datetime.datetime.now(datetime.timezone.utc)
 
         if now < next_run:
+            time.sleep(1)
             continue
 
         try:
