@@ -1,6 +1,6 @@
 module github.com/LowellMakes/nexudus-doorflow-sync
 
-go 1.23.5
+go 1.24.0
 
 require (
 	github.com/go-openapi/errors v0.22.1
@@ -8,6 +8,7 @@ require (
 	github.com/go-openapi/strfmt v0.23.0
 	github.com/go-openapi/swag v0.23.1
 	github.com/go-openapi/validate v0.24.0
+	github.com/nats-io/nats.go v1.43.0
 )
 
 require (
@@ -24,7 +25,6 @@ require (
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/mailru/easyjson v0.9.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
-	github.com/nats-io/nats.go v1.43.0 // indirect
 	github.com/nats-io/nkeys v0.4.11 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
